@@ -37,8 +37,22 @@ const loadDB = () => {
     }
 }
 
+const update = ( description, completed = true) => {
+    loadDB();
+    let index = listTodo.findIndex ( task => task.description === description );
+    if( index >= 0){
+        listTodo[index].completed = completed;
+        saveDB();
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
 module.exports = {
     create,
     saveDB,
-    getListTodo
+    getListTodo,
+    update
 }

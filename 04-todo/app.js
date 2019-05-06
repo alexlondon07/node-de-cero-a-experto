@@ -21,7 +21,8 @@ switch ( command ){
         }
         break;
     case 'update':
-        console.log('Update task to do');
+        let updated = todo.update( argv.description, argv.completed );
+        console.log(updated);
         break;
 
     default:
