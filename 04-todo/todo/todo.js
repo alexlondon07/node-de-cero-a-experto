@@ -4,6 +4,8 @@ let listTodo = [];
 
 const create = ( description ) => {
 
+    loadDB();
+
     let todo = {
         description,
         competed: false
@@ -20,6 +22,14 @@ const saveDB = () => {
     fs.writeFile ( 'db/data.json', data, ( err ) => {
         if ( err ) throw new Error('Item could not be saved')
     }); 
+}
+
+const loadDB = () => {
+    try {
+        listTodo = require('../db/data.json');
+    } catch (error) {
+        listTodo = [];
+    }
 }
 
 module.exports = {
