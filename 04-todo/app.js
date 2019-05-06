@@ -11,6 +11,7 @@ switch ( command ){
         let task = todo.create( argv.description );
         console.log( task );
         break;
+
     case 'list':
         let list = todo.getListTodo();
         console.log('================ Tasks to do ================'.blue);
@@ -20,9 +21,15 @@ switch ( command ){
             console.log('========================================='.blue);
         }
         break;
+
     case 'update':
         let updated = todo.update( argv.description, argv.completed );
         console.log(updated);
+        break;
+
+    case 'delete':
+        let deleted = todo.remove( argv.description );
+        console.log( deleted );
         break;
 
     default:

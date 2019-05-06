@@ -18,6 +18,13 @@ const argv = require('yargs')
                 desc: ''
             }
         })
+        .command('delete', 'Delete element to do',{
+            description: {
+                demand: true,
+                alias: 'd',
+                desc: 'Description command to delete element'
+            }
+        })
         .help()
         .argv;
 

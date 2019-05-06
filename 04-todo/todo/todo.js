@@ -5,7 +5,6 @@ let listTodo = [];
 const create = ( description ) => {
 
     loadDB();
-
     let todo = {
         description,
         completed: false
@@ -47,12 +46,26 @@ const update = ( description, completed = true) => {
     }else{
         return false;
     }
+}
 
+const remove = ( description) => {
+    loadDB();
+    let newListTodo = listTodo.filter ( task => {
+        return task.description !== description;
+    });
+    if( listTodo.length === newListTodo ){
+        return false;
+    }else{
+        listTodo = newListTodo;
+        saveDB();
+        return true;
+    }
 }
 
 module.exports = {
     create,
     saveDB,
     getListTodo,
-    update
+    update,
+    remove
 }
