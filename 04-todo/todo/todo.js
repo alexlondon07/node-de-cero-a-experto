@@ -8,11 +8,16 @@ const create = ( description ) => {
 
     let todo = {
         description,
-        competed: false
+        completed: false
     }
 
     listTodo.push( todo );
     saveDB();
+    return listTodo;
+}
+
+const getListTodo = () => {
+    loadDB();
     return listTodo;
 }
 
@@ -34,5 +39,6 @@ const loadDB = () => {
 
 module.exports = {
     create,
-    saveDB
+    saveDB,
+    getListTodo
 }

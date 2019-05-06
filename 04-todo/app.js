@@ -12,7 +12,13 @@ switch ( command ){
         console.log( task );
         break;
     case 'list':
-        console.log('Show all tasks to do');
+        let list = todo.getListTodo();
+        console.log('================ Tasks to do ================'.blue);
+        for (let  task of list) {
+            console.log( task.description );  
+            console.log( 'Competed: ', task.completed );  
+            console.log('========================================='.blue);
+        }
         break;
     case 'update':
         console.log('Update task to do');
