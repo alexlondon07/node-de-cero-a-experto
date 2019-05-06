@@ -1,7 +1,6 @@
-const argv = require('yargs').argv;
+//const argv = require('yargs').argv;
+const argv = require('./config/yargs').argv;
 const colors = require('colors');
-
-console.log(argv);
 
 let command = argv._[0];
 
