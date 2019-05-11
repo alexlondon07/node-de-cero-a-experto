@@ -45,6 +45,9 @@ build/Release
 node_modules/
 04-todo/node_modules/
 hello-word/node_modules/
+05-clima-mundo/node_modules/
+weather-app/node_modules/
+06-webserver/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
