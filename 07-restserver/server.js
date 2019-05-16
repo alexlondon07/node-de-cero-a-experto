@@ -2,6 +2,7 @@ require('./config/config');
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose');
 
 const app = express()
 const port = 3000;
@@ -30,6 +31,13 @@ app.post('/user', function (req, res) {
             body
         })
     }
+});
+
+
+mongoose.connect('mongodb://localhost:27017/cafe', {useNewUrlParser: true}, (err, res)=>{
+    if( err ) throw err;
+
+    console.log('DataBase Online');
 });
 
 app.listen(process.env.PORT, () => {
