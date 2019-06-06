@@ -38,6 +38,12 @@ let userShema = new Schema({
         default: false
     }
 });
+userShema.methods.toJSON = function(){
+    let user = this;
+    let userObject = user.toObject();
+    delete userObject.password;
+    return userObject;
+}
 
 userShema.plugin( uniqueValidator, { message: '{PATH} should be unique'} )
 module.exports = mongoose.model('User', userShema);
